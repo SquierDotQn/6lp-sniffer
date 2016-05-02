@@ -2,24 +2,30 @@
 \label{sec:deroulement}
 
 \section{Prise en main du sujet et des technologies}
+	Après ces explications techniques, il est temps d'expliquer comment le projet s'est déroulé pour nous. Au début, il nous a fallu prendre en main les différents outils pour travailler.
 	
-	\subsection{Contiki OS}
-		\begin{itemize}
-			\item Embarqué
-			\item simulations avec Cooja
-			\item Pourquoi Contiki et pas un autre ?
-		\end{itemize}
-	
-	\subsection{Chaîne de compilation}
-		\begin{itemize}
-			\item GCC
-			\item architectures différentes
-			\item contrôleurs radio différents
-		\end{itemize}
+	\subsection{Contiki}
+	Comme nous avons déjà vu, Contiki est un système d'exploitation qui vise les systèmes embarqués. Notre expérience avec l'embarqué était limitée bien que non-nulle, aussi la prise en main s'est faite assez rapidement, même si difficilement.\\
+	Certains concepts, comme les proto-threads utilisés par Contiki, sont assez proches d'autres concepts présents dans les systèmes d'exploitation habituels, néanmoins la découverte des fonctionnalités de Contiki a pris du temps car il est complet et offre les principales caractéristiques et fonctionnalités d'un système habituel.\\
+	Ceci est l'une des raisons, avec celles déjà évoquées pour IPv6 et 6LoWPAN, du choix de Contiki plutôt que FreeRTOS ou TinyOS.
+%		\begin{itemize}
+%			\item Embarqué
+%			\item simulations avec Cooja
+%			\item Pourquoi Contiki et pas un autre ?
+%		\end{itemize}
+
+	\subsection{Chaîne de compilation et pilotes}
+	Les découvertes ici ont été plutôt rapides puisque la machine virtuelle InstantContiki3.0 contient la chaîne de compilation nécessaire à la compilation des projets sur les différentes architectures supportées par Contiki. L'installation à la main de la chaîne de compilation est bien documentée sur les différents tutoriels concernant Contiki présents sur Internet.\\
+	Les pilotes des différents contrôleurs radios sont par contre difficiles à prendre en main, aussi avons nous choisi de nous concentrer sur les contrôleurs cc2420 de Texas Instrument car déjà présent dans d'autres projets que nous avons passés en revue.
+%		\begin{itemize}
+%			\item GCC
+%			\item architectures différentes
+%			\item contrôleurs radio différents
+%		\end{itemize}
 
 \section{Programme développé}
-	\subsection{Comment c'est fait}
-	\subsection{Jusque où est on arrivé}
+	\subsection{Fonctionnement du projet}
+	\subsection{État du projet}
 
 \section{Retours d'expérience} % DONE ?
     Pendant ce projet, nous avons pu apprendre beaucoup de choses, développer nos compétences et de produire un programme, dont qui peut bénéficier d'évolutions sur le court et long terme.
