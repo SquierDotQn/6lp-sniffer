@@ -1,21 +1,23 @@
 \chapter{Contexte du sujet}
 \label{chap:contexte}
-
-\begin{itemize}
-	\item Expliquer le projet
-\end{itemize}
+%%\begin{itemize}
+	%%\item Expliquer le projet
+Dans notre projet nous devions réaliser des noeuds qui peuvent écouter le trafic réseau. Ce terme noeud n'apparait que dans le mode simulation du projet, en réalité on parle de sondes. Ce projet s'inscrit donc dans le domaine de l'Internet des objets. La description des outils utilisés et des stratégies mises en place pour surveiller le réseau sera détaillée dans les parties ci dessous. 
+%%\end{itemize}
 
 \section{Analyse de l'existant}
 	
 	\subsection{Internet des objets}
-		\begin{itemize}
-			\item Qu'est-ce que c'est ?	
-			\item Technologies utilisables ( bluetooth, wifi, 6lowpan )
-		\end{itemize}
+		%%\begin{itemize}
+			%%\item Qu'est-ce que c'est ?
+			L'Internet des Objets (ou Web of Things en anglais) correspond à l'extension d'internet aux éléments ou lieux du monde physique. Cette technologie est largement implantée dans notre société avec diverses applications comme la domotique, les achats par téléphone mobile, gestion des dechets.. Notre projet s'inscrit donc dans cet univers puisque les sondes intéragissent avec différents éléments réseaux d'un batiment par exemple. L'Internet des objets regroupe également différents modes de communications tels que le wifi, bluetooth.??definition de 6LowPAN\\
+			%%\item Technologies utilisables (bluetooth, wifi, 6lowpan)
+			Détailler les différentes technologies
+		%%\end{itemize}
 		
 	\subsection{Technologies de communication}
-		\begin{itemize}
-			\item 6lowpan qu'est-ce que c'est ?
+		%%\begin{itemize}
+			%\item 6lowpan qu'est-ce que c'est ?
 			\begin{itemize}
 				\item définition
 				\item exemples (Linky, domotique, industrie)
@@ -33,17 +35,19 @@
 
 
 
-\section{But du projet}
+\section{Objectif du projet}
 
 	\subsection{Détail du projet}
-		\begin{itemize}
-			\item mote qui sniffe, oui mais quoi ?
-			\item système contraint en puissance et en mémoire
-		\end{itemize}
+		%%\begin{itemize}
+		Nous avons expliqué le fonctionnement du projet mais non pourquoi il fallait mettre en place ces sondes et comment cela fonctionnait. Les noeuds ou "mote" vont analyser le trafic circulant, les données qu'elles peuvent récupérer peuvent faciliter la détéction d'intrusion. En effet les paquets émis contiennent des identifiants, des tailles spécifiées, des numéros de ports sur lesquels ils sont envoyés. Ces informations doivent être donc traitées avec rigueur et méthode car le système de communication est restreint (de part sa mémoire limitée) mais également au niveau de sa puissance.
+			%%\item mote qui sniffe, oui mais quoi ?
+			%%\item système contraint en puissance et en mémoire
+		%%\end{itemize}
 	\subsection{Où s'inscrit le projet ?}
-		\begin{itemize}
-			\item Industrie, hopitaux, mobilier urbain ( pas "simple domotique" )
-		\end{itemize}
+		%%\begin{itemize}
+			Comme énoncé précédemment, l'internet des objets peut s'appliquer dans de nombreux domaines. Les sondes 6LoWPAN s'adaptent donc à ces différents secteurs pour la surveillance en industrie par exemple, l'optimisation de calculs ou réaliser des mesures (thermiques, lumineuses ..). 
+			%%\item Industrie, hopitaux, mobilier urbain ( pas "simple domotique" )
+		%%\end{itemize}
 
 \section{Réponse à un besoin de l'équipe}
 	
@@ -57,7 +61,7 @@
 		\item D'accord, mais quid des communications ?
 	\end{itemize}
 	
-	\subsection{Disqus}
+	\subsection{Discus}
 	\begin{itemize}
 		\item IDS -- Système de détection d'intrusion
 	\end{itemize}
@@ -72,6 +76,7 @@
 		\end{itemize}
 	\subsection{Langage C embarqué et sa chaine de compilation spécifique}
 	\subsection{Git}
+	Git est un gestionnaire de version de projet. Celui ci permet de synchroniser le travail de notre binôme ainsi que d'autres documents. Nous avons stocké notre projet sur GitHub qui facilite la lecture de nos contributions.
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "isae-report-template"
