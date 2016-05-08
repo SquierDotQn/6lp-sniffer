@@ -2,7 +2,7 @@
 \label{chap:contexte}
 %%\begin{itemize}
 	%%\item Expliquer le projet
-	Notre projet est de produire une sonde qui renifle le trafic réseau dans le contexte de l'Internet des Objets. Cette sonde est un noeud dans ce réseau, et a pour but de transmettre des informations utiles à la sécurisation du réseau, et dans une certaine mesure à l'analyse de ces informations.
+	Notre projet est de produire une sonde qui renifle (ou sniffe) le trafic réseau dans le contexte de l'Internet des Objets. Cette sonde est un noeud dans ce réseau, et a pour but de transmettre des informations utiles à sa sécurisation et dans une certaine mesure à l'analyse de ces informations.
 %%\end{itemize}
 
 \section{Analyse de l'existant}
@@ -13,7 +13,7 @@
 		L'Internet des Objets, ou Internet of Things en anglais, correspond à l'extension d'internet aux éléments ou lieux du monde physique, là où l'internet habituel s'arrête au domaine du virtuel.
 		Cette technologie est implantée dans notre société avec diverses applications comme la domotique, le médical, la gestion des déchets, mais pas limité à ceux là.
 		Notre projet s'inscrit donc dans cet univers puisque les sondes surveillent le trafic de différents éléments d'un sous-réseau d'objets physiques, d'un bâtiment par exemple. \\
-		L'Internet des objets regroupe différents modes de communications entre les nœuds d'un réseau tels que le Wi-Fi, le courant porteur ou le bluetooth.%%??definition de 6LowPAN\\
+		L'Internet des objets regroupe différents modes de communications entre les nœuds d'un réseau tels que le Wi-Fi, le courant porteur ou le bluetooth.%%\\
 			%%\item Technologies utilisables (bluetooth, wifi, 6lowpan)
 			%%Détailler les différentes technologies
 		%%\end{itemize}
@@ -36,7 +36,7 @@
 	%			\item Sécurité dans 6lowpan
 	%			\begin{itemize}
 	%				\item RFC définissent sécurité
-		Les différentes RFC définissent un ensemble de consignes sur l'implémentation de la sécurité des réseaux 6LoWPAN notamment sur les différentes couches de la pile protocolaire.
+		Les différentes RFC (Request For Comment) définissent un ensemble de consignes sur l'implémentation de la sécurité des réseaux 6LoWPAN notamment sur les différentes couches de la pile protocolaire.
 		
 		\begin{figure}[htp]
 			\centering
@@ -46,13 +46,13 @@
 		\end{figure}
 		
 		\begin{itemize}
-			\item Sur la couche MAC : l'algorithme AES doit être utilisé pour sécuriser la couche liaison.
-			\item Sur la couche réseau : l'utilisation d'IPsec est possible, mais coûteuse et un échange de clés habituel n'est pas possible. Une extension du protocole SEND -- \emph{\textbf{SE}cure \textbf{N}eighbor \textbf{D}iscovery protocol} -- (RFC 3971) permettant de sécuriser ce mécanisme a été mis en place pour les réseaux 6LoWPAN, appelé LSEND -- \emph{\textbf{L}ightweight \textbf{SE}cure \textbf{N}eighbor \textbf{D}iscovery protocol} --.
+			\item Sur la couche MAC : l'algorithme AES (Advanced Encryption Standard) doit être utilisé pour sécuriser la couche liaison.
+			\item Sur la couche réseau : l'utilisation d'IPsec (Internet Protocol Security) est possible, mais coûteuse et un échange de clés habituel pour le chiffrement n'est pas possible. Une extension du protocole SEND -- \emph{\textbf{SE}cure \textbf{N}eighbor \textbf{D}iscovery protocol} -- (RFC 3971) permettant de sécuriser ce mécanisme a été mis en place pour les réseaux 6LoWPAN, appelé LSEND -- \emph{\textbf{L}ightweight \textbf{SE}cure \textbf{N}eighbor \textbf{D}iscovery protocol} --.
 			\item Sur la couche application : une solution possible est de mettre en place la sécurisation via SSL.
 		\end{itemize}
 %				\item Dans les faits, pas vraiment mis en place
 		
-		Dans les faits, la sécurité étant difficile à mettre en place à cause des contraintes de l'embarqué, elle est parfois insuffisante pour garantir un échange de données sécurisé.
+		Dans les faits, la sécurité étant difficile à mettre en place à cause des contraintes de l'embarqué (performance, stockage des données), elle est parfois insuffisante pour garantir un échange de données sécurisées.
 %			\end{itemize}
 %		\end{itemize}
 
@@ -62,16 +62,16 @@
 
 	\subsection{Détail du projet}
 		%%\begin{itemize}
-			%%\item mote qui sniffe, oui mais quoi ?
-		Nous avons expliqué l'intitulé du projet mais non pourquoi ces sondes peuvent être utiles. Les sondes sont des noeuds, ou mote dans le jargon de Contiki, qui vont renifler et analyser le trafic circulant, car les informations qu'elles récupèrent permettent la détection d'intrusions. \\
-		En effet, le trafic circulant et les paquets sont soumis à des formats spécifiques, contenant des informations qui doivent s'y conformer, ou au contraire faire des écarts vis à vis du format, ce qui constitue une anomalie, et possiblement une attaque.\\
+			%%\item Quels types de données sont analysées ?
+		Nous avons expliqué l'intitulé du projet mais non pourquoi ces sondes pouvaient être utiles. Les sondes sont des noeuds, ou mote dans le vocabulaire de Contiki, qui vont sonder et analyser le trafic circulant. Les informations qu'elles récupèrent permettent la détection d'intrusions. \\
+		En effet, le trafic et les paquets sont soumis à des formats spécifiques, contenant des informations qui doivent s'y conformer. Dans le cas d'écarts par rapport au format réglementaire, on se retrouve face à une anomalie, et possiblement une attaque.\\
 			%%\item système contraint en puissance et en mémoire
 		La difficulté de cette analyse réside autant dans les contraintes du matériel, qui est limité en puissance et en mémoire, que dans les solutions mises en places par le réseau pour pallier à ces contraintes, par exemple la compression d'entête.
 		%%\end{itemize}
 	\subsection{Où s'inscrit le projet ?}
 		%%\begin{itemize}
-		Comme illustré précédemment, l'Internet des Objets trouve son utilité dans de nombreux domaines. Certains domaines, comme l'industrie ou le médical, font circuler des données sensibles sur le réseau, et des personnes mal intentionnées pourraient causer de graves problèmes sans être détecté si le réseau n'est pas protégé.\\
-		Un exemple un peu plus léger est l'histoire du soi-disant hacker qui avait changé le nombre de places des panneaux de parking par des injures. La personne a simplement usurpé l'identité de la machine qui met à jour les places, et a envoyé des paquets falsifiés contenant ces injures.
+		Comme illustré précédemment, l'Internet des Objets trouve son utilité dans de nombreux domaines. Certaines applications, comme l'industrie ou le médical, font circuler des données sensibles sur le réseau, et des personnes mal intentionnées pourraient causer de graves problèmes sans être détectés si le réseau n'est pas protégé.\\
+		On peut retrouver d'autres exemples ayant moins de conséquences comme les hackers changeant le nombre de places des panneaux de parking par des injures. Dans cet exemple, la personne a simplement usurpé l'identité de la machine qui met à jour les places, et a envoyé des paquets falsifiés contenant ces injures grâce à un manque de sécurité sur le réseau.
 			%%\item Industrie, hopitaux, mobilier urbain ( pas "simple domotique" )
 		%%\end{itemize}
 
@@ -85,9 +85,9 @@
 		L'équipe de recherche 2XS se focalise sur la création de systèmes sûrs, par le biais de différents mécanismes, dont les preuves formelles de programmes, le développement de librairies, et bien d'autres projets visant à sécuriser les systèmes.\\
 		%			\item Différents projets de sécurité
 		%		\end{itemize}
-		%		\item D'accord, mais quid des communications ?
+		%		\item Qu'en est il des communications ?
 		
-		Mais la problématique de la sécurité ne s'arrête pas à la frontière du système en lui-même, il communique avec d'autres. C'est là que les failles et les fuites d'informations sont les plus nombreuses, même si l'intégrité du système n'est pas en cause.\\
+		La problématique de la sécurité ne s'arrête pas à la frontière du système en lui-même, il communique avec d'autres. C'est là que les failles et les fuites d'informations sont les plus nombreuses, même si l'intégrité du système n'est pas en cause.\\
 		L'un de leurs projets pour répondre à ce problème est Discus.
 %	\end{itemize}
 	
@@ -117,7 +117,7 @@
 	\end{figure}
 
 	\subsection{Langage C embarqué et sa chaîne de compilation}
-	La création de la sonde s'est fait sur Contiki et le programme a donc dû être adapté aux contraintes du matériel pour lequel il est créé. Pour cela, nous devons rendre le code le plus léger et proche du matériel, et cela passe par l'absence des librairies standard du langage C, par exemple stdlib ou unistd.\\
+	La création de la sonde s'est faite sur Contiki et le programme a dû être adapté aux contraintes du matériel pour lequel il est créé. Pour cela, nous devions rendre le code le plus léger et proche du matériel, ceci s'illustre par l'absence des librairies standard du langage C, par exemple stdlib ou unistd.\\
 	La compilation des programmes se fait avec des versions de GCC spécifiques aux architectures matérielles que nous utilisons.
 	
 	\subsection{Git}
