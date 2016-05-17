@@ -2,7 +2,7 @@
 \label{chap:contexte}
 %%\begin{itemize}
 	%%\item Expliquer le projet
-	Notre projet est de produire une sonde qui renifle (ou sniffe) le trafic réseau dans le contexte de l'Internet des Objets. Cette sonde est un nœud dans ce réseau, et a pour but de transmettre des informations utiles à sa sécurisation et dans une certaine mesure à l'analyse de ces informations.
+	Notre projet est de produire une sonde qui renifle (ou sniffe) le trafic réseau dans le contexte de l'Internet des Objets. Cette sonde est un noeud dans ce réseau, et a pour but de transmettre des informations utiles à sa sécurisation et dans une certaine mesure à l'analyse de ces informations.
 %%\end{itemize}
 
 \section{Analyse de l'existant}
@@ -13,7 +13,7 @@
 		L'Internet des Objets, ou Internet of Things en anglais, correspond à l'extension d'internet aux éléments ou lieux du monde physique, là où l'internet habituel s'arrête au domaine du virtuel.
 		Cette technologie est implantée dans notre société avec diverses applications comme la domotique, le médical, la gestion des déchets, mais pas limité à ceux là.
 		Notre projet s'inscrit donc dans cet univers puisque les sondes surveillent le trafic de différents éléments d'un sous-réseau d'objets physiques, d'un bâtiment par exemple. \\
-		L'Internet des objets regroupe différents modes de communications entre les nœuds d'un réseau tels que le Wi-Fi, le courant porteur ou le bluetooth.%%\\
+		L'Internet des objets regroupe différents modes de communications entre les noeuds d'un réseau tels que le Wi-Fi, le courant porteur ou le bluetooth.%%\\
 			%%\item Technologies utilisables (bluetooth, wifi, 6lowpan)
 			%%Détailler les différentes technologies
 		%%\end{itemize}
@@ -23,8 +23,8 @@
 %			\item 6lowpan qu'est-ce que c'est ?
 %			\begin{itemize}
 %				\item définition
-		6LoWPAN est une spécification du principe des LoWPAN, c'est à dire un ensemble d'équipements aux ressources limitées, puissance, autonomie entre autres, reliés dans un réseau au débit limité. Typiquement, ces réseaux sont constitués d'un grand nombre d'éléments ou nœuds dans le réseau.
-		Basé sur l'IPv6, quelques problèmes se posent avec la spécification standard de celui ci. Ce protocole de communication possède une taille d'entête importante, couplée aux contraintes de tailles de paquets imposées, cela pose des soucis de fragmentation et de réassamblage excessif pour des contrôleurs aux capacités limitées.\\
+		6LoWPAN est une spécification du principe des LoWPAN, c'est à dire un ensemble d'équipements aux ressources limitées, puissance, autonomie entre autres, reliés dans un réseau au débit limité. Typiquement, ces réseaux sont constitués d'un grand nombre d'éléments ou noeuds dans le réseau.
+		Basé sur l'IPv6, quelques problèmes se posent avec la spécification standard de celui ci. Ce protocole de communication possède une taille d'en-tête importante, couplée aux contraintes de tailles de paquets imposées, cela pose des soucis de fragmentation et de réassamblage excessif pour des contrôleurs aux capacités limitées.\\
 %				\item exemples (Linky, domotique, industrie)
 		La spécification de 6LoWPAN et ses RFC (4919 et 4944) définissent donc des solutions à ces problèmes, et on peut aujourd'hui utiliser plusieurs implémentations de 6LoWPAN, tel que ZigBee. Linky, le nouveau compteur communicant d'ERDF utilise cette technologie. Bien sûr, on peut trouver pléthore de projets et d'objets de domotique se servant de la spécification et de ses implémentations pour communiquer.
 		
@@ -66,7 +66,7 @@
 		Nous avons expliqué l'intitulé du projet mais non pourquoi ces sondes pouvaient être utiles. Les sondes sont des noeuds, ou mote dans le vocabulaire de Contiki, qui vont sonder et analyser le trafic circulant. Les informations qu'elles récupèrent permettent la détection d'intrusions. \\
 		En effet, le trafic et les paquets sont soumis à des formats spécifiques, contenant des informations qui doivent s'y conformer. Dans le cas d'écarts par rapport au format réglementaire, on se retrouve face à une anomalie, et possiblement une attaque.\\
 			%%\item système contraint en puissance et en mémoire
-		La difficulté de cette analyse réside autant dans les contraintes du matériel, qui est limité en puissance et en mémoire, que dans les solutions mises en places par le réseau pour pallier à ces contraintes, par exemple la compression d'entête.
+		La difficulté de cette analyse réside autant dans les contraintes du matériel, qui est limité en puissance et en mémoire, que dans les solutions mises en places par le réseau pour pallier à ces contraintes, par exemple la compression d'en-tête.
 		%%\end{itemize}
 	\subsection{Où s'inscrit le projet ?}
 		%%\begin{itemize}
@@ -106,7 +106,7 @@
 	
 	\subsection{Outils de simulations}
 	Notre sonde a été créée dans un environnement de développement fourni par le site officiel de Contiki, la machine virtuelle InstantContiki3.0, en utilisant principalement pour les tests l'outil de simulation Cooja.\\
-	Cooja est un simulateur de matériel pour Contiki permettant de créer virtuellement un réseau de capteurs, de les positionner à notre envie et de charger les différents programmes pour les nœuds (ou motes dans le jargon Contiki) à la volée.
+	Cooja est un simulateur de matériel pour Contiki permettant de créer virtuellement un réseau de capteurs, de les positionner à notre envie et de charger les différents programmes pour les noeuds (ou motes dans le jargon Contiki) à la volée.
 	Nous avons donc passé beaucoup de temps à l'utiliser pour tester notre programme dans des situations réalistes.
 	\clearpage
 	\begin{figure}[htp]
