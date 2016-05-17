@@ -109,7 +109,7 @@
 					\caption{Architecture d'une liste chaînée sur Contiki.}
 					\label{fig:list}
 				\end{figure}
-				Les objets de la liste sont des structures qui sont définies par le modules qui utilise la liste. La seule condition est que le premier objet de la liste doit être un pointeur, qui est utilisé par la librairie pour lier les objets ensemble dans la liste.\\
+				Les objets de la liste sont des structures qui sont définies par le module qui utilise la liste. La seule condition est que le premier objet de la liste doit être un pointeur, qui est utilisé par la librairie pour lier les objets ensemble dans la liste.\\
 				Une liste de Contiki consiste d'un pointeur et de zéro ou plus objets dans la liste, comme montré dans l'illustration ci-dessus. Le pointeur pointe vers le premier objet de la liste.\\
 				
 				La liste était l'une des solutions potentielles à notre besoin de stockage, mais il a été décidé de faire appel à un moyen encore plus léger : le buffer cyclique.
@@ -128,9 +128,8 @@
 				\end{figure}\\
 %				\item Expliquer pourquoi on l'a utilisé
 %			\end{itemize}
-				Ci-dessus : Un buffer cyclique avec quatre objets, a, b, c et d. L'objet a est le prochain a sortir du buffer. Le d est l'objet le plus récemment inséré. Le premier et dernier pointeur permettent d'y accéder respectivement.\\\\
-				Un buffer cyclique ( parfois appelé buffer en anneau ) est une structure de données qui garde les données en mémoire sous la forme d'un anneau comme montré ce-dessus. Les données sont stockées dans le buffer, et sont lues dans le même ordre que celui dans lequel elles ont été insérées. La structure est donc proche d'une FIFO ( First In First Out ) ou file en français, mais avec la particularité d'être cyclique.\\
-				%The Contiki ring buffer library implements a ring buffer handling mechanism that stores bytes in an array that must have a size that is a powers of two, and 256 bytes or less. The reason for requiring that the size is a power of two is that wrapping of the first and last pointer in the ring structure can be implemented using bit-wise Boolean operators.
+				Ci-dessus : Un buffer cyclique avec quatre objets, a, b, c et d. L'objet a est le prochain à sortir du buffer. Le d est l'objet le plus récemment inséré. Le premier et dernier pointeur permettent d'y accéder respectivement.\\\\
+				Un buffer cyclique ( parfois appelé buffer en anneau ) est une structure de données qui garde les données en mémoire sous la forme d'un anneau comme montré ci-dessus. Les données sont stockées dans le buffer, et sont lues dans le même ordre que celui dans lequel elles ont été insérées. La structure est donc proche d'une FIFO ( First In First Out ) ou file en français.\\
 				Contiki propose une librairie qui implémente les buffers cycliques, qui garde en mémoire des octets dans un tableau dont la taille doit être une puissance de deux, inférieure ou égale à 256. La raison pour la contrainte sur les puissances de deux est que la structure implémente les fonctions sur les pointeurs de début et de fin avec des opérateurs booléens.\\
 				Aussi, la taille maximale de 256 octets est là pour permettre à ces pointeurs de début et de fin de tenir dans une structure de 8 bits. L'octet habituel est la seule structure de donnée qui peut être mise à jour de façon atomique, ce qui est important pour assurer la synchronisation entre les lectures et écritures sur le buffer cyclique, même si l'un préempte l'autre.\\
 				
