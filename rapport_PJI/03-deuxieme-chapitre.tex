@@ -18,7 +18,7 @@
 		
 		\subsubsection{Organisation de la pile IPv6}
 			
-			L'implémentation de la pile réseau nous permet d'utiliser les communications avec aisance. C'est grâce à elle que nous pouvons envoyer et recevoir des messages.
+			L'implémentation de la pile réseau nous permet d'utiliser les communications avec aisance. C'est grâce à celle-ci que nous pouvons envoyer et recevoir des messages.
 			
 			La pile réseau se découpe en quatre couches :
 			\begin{itemize}
@@ -60,7 +60,7 @@
 			\end{figure}
 			
 			
-			Le buffer pour les paquets sortants permet de construire ce qu'on veut envoyer de façon structurée, avec une séparation de l'en-tête et des données qui permet de modifier l'un sans influer sur l'autre. \\
+			Le buffer pour les paquets sortants permet de construire ce que l'on souhaite envoyer de façon structurée, avec une séparation de l'en-tête et des données qui permet de modifier l'un sans influer sur l'autre. \\
 			Ce découpage donne accès aux attributs des paquets, ce qui comprend 4 niveaux d'utilisations :
 			\begin{itemize}
 				\item Local
@@ -79,7 +79,7 @@
 				\label{fig:inbuf}
 			\end{figure}
 			
-			Le buffer pour les paquets entrant ne fait pas la différence entre en-tête et données, et met tout dans la partie données. Cela permet d'économiser de la puissance de calcul en évitant d'interpréter l'en-tête.\\
+			Le buffer pour les paquets entrant ne fait pas la différence entre en-tête et données, tout est stocké dans la partie données. Cela permet d'économiser de la puissance de calcul en évitant d'interpréter l'en-tête.\\
 			Les fonctions à disposition permettent uniquement de récupérer le paquet brut. Pour effectuer nos vérifications, ils nous faut donc étudier la construction des paquets.
 	
 	\subsection{Systèmes de stockage Contiki}
@@ -89,16 +89,16 @@
 		\subsubsection{Contiki Coffee file system}
 %			\begin{itemize}
 %				\item Expliquer comment écrire dedans
-			Contiki possède plusieurs systèmes de fichiers qui implémentent l'interface de Contiki File System, dont Coffee. Coffee est utilisé sur les appareils équipés avec de la mémoire flash ou de l'EEPROM. Contiki s'occupe de l'implémentation matérielle, et Coffee fournit une API qui est similaire aux opérations sur les fichiers du langage C standard.\\
+			Contiki possède plusieurs systèmes de fichiers qui implémentent l'interface de Contiki File System, dont Coffee. Coffee est utilisé sur les appareils équipés de mémoire flash ou d'EEPROM. Contiki s'occupe de l'implémentation matérielle, et Coffee fournit une API qui est similaire aux opérations sur les fichiers du langage C standard.\\
 			
 %				\item Expliquer pourquoi on ne l'a pas utilisé
 			L'intérêt d'un système de fichier est d'envoyer d'un seul coup plusieurs données, afin de limiter le nombre de transmissions, et donc de consommer moins d'énergie. Aussi, garder les données en mémoire de façon locale permet, en cas de transmission échouée, de ne pas les perdre définitivement.
 			
-			Nous avons préféré nous tourner vers la mémoire volatile pour enregistrer les informations, pour avoir une solution moins lourde.
+			Nous avons préféré nous tourner vers la mémoire volatile pour enregistrer les informations et avoir une solution moins lourde.
 %			\end{itemize}
 		\subsubsection{Volatile}
 			
-			La mémoire volatile de Contiki peut s'utiliser de plusieurs façons :\\ \\
+			La mémoire volatile de Contiki peut s'utiliser de plusieurs manières :\\ \\
 			\textbf{Listes}\\
 %			\begin{itemize}
 %				\item Expliquer comment écrire dedans
@@ -109,7 +109,7 @@
 					\caption{Architecture d'une liste chaînée sur Contiki.}
 					\label{fig:list}
 				\end{figure}
-				Les objets de la liste sont des structures qui sont définies par le module qui utilise la liste. La seule condition est que le premier objet de la liste doit être un pointeur, qui est utilisé par la librairie pour lier les objets ensemble dans la liste.\\
+				Les objets de la liste sont des structures qui sont définies par le module qui utilise la liste. La seule condition est que le premier objet de la liste doit être un pointeur utilisé par la librairie pour lier les objets ensemble dans la liste.\\
 				Une liste de Contiki consiste d'un pointeur et de zéro ou plus objets dans la liste, comme montré dans l'illustration ci-dessus. Le pointeur pointe vers le premier objet de la liste.\\
 				
 				La liste était l'une des solutions potentielles à notre besoin de stockage, mais il a été décidé de faire appel à un moyen encore plus léger : le buffer cyclique.
@@ -119,7 +119,7 @@
 			\textbf{Buffers cycliques}\\
 %			\begin{itemize}
 %				\item Expliquer comment écrire dedans
-				Il y a plusieurs endroits dans Contiki où un gestionnaire d'interruption doit garder des données qui peuvent être indépendamment être lues par d'autres parties de Contiki. Le gestionnaire et les fonctions de lectures doivent être synchronisées pour éviter les problèmes de concurrence, parce le gestionnaire peut préempter les parties qui lisent les données à n'importe quel moment. Les mécanismes de lecture et d'écriture sont donc pensées pour être indépendantes de chacune.\\
+				Il y a plusieurs endroits dans Contiki où un gestionnaire d'interruption doit garder des données qui peuvent indépendamment être lues par d'autres parties de Contiki. Le gestionnaire et les fonctions de lectures doivent être synchronisées pour éviter les problèmes de concurrence, parce que le gestionnaire peut préempter les parties qui lisent les données à n'importe quel moment. Les mécanismes de lecture et d'écriture sont donc pensés pour être indépendant de chacun.\\
 				\begin{figure}[htp]
 					\centering
 					\includegraphics[width=10cm]{images/ringbuf}
@@ -129,9 +129,9 @@
 %				\item Expliquer pourquoi on l'a utilisé
 %			\end{itemize}
 				Ci-dessus : Un buffer cyclique avec quatre objets, a, b, c et d. L'objet a est le prochain à sortir du buffer. Le d est l'objet le plus récemment inséré. Le premier et dernier pointeur permettent d'y accéder respectivement.\\\\
-				Un buffer cyclique ( parfois appelé buffer en anneau ) est une structure de données qui garde les données en mémoire sous la forme d'un anneau comme montré ci-dessus. Les données sont stockées dans le buffer, et sont lues dans le même ordre que celui dans lequel elles ont été insérées. La structure est donc proche d'une FIFO ( First In First Out ) ou file en français.\\
+				Un buffer cyclique ( parfois appelé buffer en anneau ) est une structure de données qui garde les informations en mémoire sous la forme d'un anneau comme montré ci-dessus. Les données sont stockées dans le buffer, et sont lues dans l'ordre de leur insertion. La structure est donc proche d'une FIFO ( First In First Out ) ou file en français.\\
 				Contiki propose une librairie qui implémente les buffers cycliques, qui garde en mémoire des octets dans un tableau dont la taille doit être une puissance de deux, inférieure ou égale à 256. La raison pour la contrainte sur les puissances de deux est que la structure implémente les fonctions sur les pointeurs de début et de fin avec des opérateurs booléens.\\
-				Aussi, la taille maximale de 256 octets est là pour permettre à ces pointeurs de début et de fin de tenir dans une structure de 8 bits. L'octet habituel est la seule structure de donnée qui peut être mise à jour de façon atomique, ce qui est important pour assurer la synchronisation entre les lectures et écritures sur le buffer cyclique, même si l'un préempte l'autre.\\
+				De plus, la taille maximale de 256 octets est là pour permettre à ces pointeurs de début et de fin de tenir dans une structure de 8 bits. L'octet habituel est la seule structure de donnée qui peut être mise à jour de façon atomique, ce qui est important pour assurer la synchronisation entre les lectures et écritures sur le buffer cyclique, même si l'un préempte l'autre.\\
 				
 				Malgré les contraintes imposées par cette structure, sa légèreté et ses propriétés de synchronisation sont des gros avantages sur les autres structures : Les paquets n'attendent pas que Contiki ait fini d'écrire dans sa mémoire.
 	
@@ -140,7 +140,7 @@
 	\subsection{Compression des headers}
 %		\begin{itemize}
 %			\item Pourquoi compresser ?
-		Comme évoqué dans l'analyse de l'existant, les communications via IPv6 se révèlent peu pratiques pour des systèmes contraints, surtout à cause des headers ( ou entêtes ) trop volumineux qui réduisent la charge utile de données contenues par un paquet, multipliant le nombre de paquets. \\
+		Comme évoqué dans l'analyse de l'existant, les communications via IPv6 se révèlent peu pratiques pour des systèmes contraints, notamment à cause des headers ( ou entêtes ) trop volumineux qui réduisent la charge utile de données contenues par un paquet, multipliant le nombre de paquets. \\
 		La RFC 4944 définit LOWPAN\_HC1, le mécanisme de compression des en-têtes IPv6 pour les LowPAN. Elle intègre aussi la compression de l'en-tête UDP sur 4 octets, mais n'autorise pas la compression du Checksum. De plus, elle restreint la plage des ports UDP de 61616 à 61631 afin de compresser à 4 bits cette valeur.
 		
 		\begin{figure}[htp]
@@ -171,7 +171,7 @@
 %			\item Brouillage des ondes
 %			\item Inondation de paquets
 %		\end{itemize}
-			Les attaques passives telles que les écoutes, les attaques de brouillage des ondes, ou d'inondation de paquets sont difficilement repérables par un noeud du réseau. Ces attaques ne sont donc pas pertinentes dans le cadre de notre sujet, car il faudrait fait usage de matériel différent de nos capteurs.
+			Les attaques passives telles que les écoutes,attaques de brouillage d'ondes ou d'inondation de paquets sont difficilement repérables par un noeud du réseau. Ces attaques ne sont donc pas pertinentes dans le cadre de notre sujet, car il faudrait faire usage de matériel différent de nos capteurs.
 		\subsubsection{Pertinentes}
 %		\item Qui nous intéressent
 %		\begin{itemize}
@@ -182,7 +182,7 @@
 %		\end{itemize}
 			D'autres attaques, comme la duplication ou falsification de paquets, le spoofing et l'attaque Sybil sont des exemples que nous avons étudié pour préparer des vérifications sur notre capteur.\\
 			
-			La \textbf{falsification} de paquets peut entrainer une nombre de situations d'attaque, tout en étant difficile à détecter. Un paquet peut être falsifié sur plusieurs champs ou un seul, pour avoir différents effets.\\
+			La \textbf{falsification} de paquets peut entrainer un nombre de situations d'attaque important, tout en étant difficile à détecter. Un paquet peut être falsifié sur plusieurs champs ou un seul, pour avoir différents effets.\\
 			Le \textbf{spoofing} est la situation où un attaquant envoie un paquet en falsifiant l'adresse source pour se faire passer pour quelqu'un d'autre, généralement une adresse de confiance.\\
 			La \textbf{duplication} de paquets est une autre manière de mener une attaque contre un réseau, par exemple, en renvoyant un message d'authentification antérieur.\\
 			L'\textbf{attaque Sybil} est particulière, il s'agit d'un seul acteur possédant plusieurs identités, par exemple un seul noeud qui envoie des messages avec deux ou plus adresses sources qui n'étaient pas utilisées auparavant. C'est ce qui la différencie d'un simple spoof.

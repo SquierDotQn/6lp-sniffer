@@ -11,9 +11,9 @@
 		%%\begin{itemize}
 			%%\item Qu'est-ce que c'est ?
 		L'Internet des Objets, ou Internet of Things en anglais, correspond à l'extension d'internet aux éléments ou lieux du monde physique, là où l'internet habituel s'arrête au domaine du virtuel.
-		Cette technologie est implantée dans notre société avec diverses applications comme la domotique, le médical, la gestion des déchets, mais pas limité à ceux là.
+		Cette technologie est implantée dans notre société avec diverses applications comme la domotique, le médical, la gestion des déchets mais n'est pas limitée à ceux là.
 		Notre projet s'inscrit donc dans cet univers puisque les sondes surveillent le trafic de différents éléments d'un sous-réseau d'objets physiques, d'un bâtiment par exemple. \\
-		L'Internet des objets regroupe différents modes de communications entre les noeuds d'un réseau tels que le Wi-Fi, le courant porteur ou le bluetooth.%%\\
+		L'Internet des objets regroupe différents modes de communications entre les noeuds d'un réseau tels que le Wi-Fi, le courant porteur ou le Bluetooth.%%\\
 			%%\item Technologies utilisables (bluetooth, wifi, 6lowpan)
 			%%Détailler les différentes technologies
 		%%\end{itemize}
@@ -23,8 +23,9 @@
 %			\item 6lowpan qu'est-ce que c'est ?
 %			\begin{itemize}
 %				\item définition
-		6LoWPAN est une spécification du principe des LoWPAN, c'est à dire un ensemble d'équipements aux ressources limitées, puissance, autonomie entre autres, reliés dans un réseau au débit limité. Typiquement, ces réseaux sont constitués d'un grand nombre d'éléments ou noeuds dans le réseau.
-		Basé sur l'IPv6, quelques problèmes se posent avec la spécification standard de celui ci. Ce protocole de communication possède une taille d'en-tête importante, couplée aux contraintes de tailles de paquets imposées, cela pose des soucis de fragmentation et de réassamblage excessif pour des contrôleurs aux capacités limitées.\\
+		6LoWPAN est une spécification du principe des LoWPAN, c'est à dire un ensemble d'équipements aux ressources limitées, puissance, autonomie entre autres, reliés dans un réseau au débit limité. Typiquement, ces réseaux sont constitués d'un grand nombre d'éléments ou noeuds.
+		Basé sur l'IPv6, quelques problèmes se posent avec la spécification standard de celui ci.
+		Ce protocole de communication possède une taille d'en-tête importante, couplée aux contraintes de tailles de paquets imposées, cela pose des soucis de fragmentation et de réassamblage excessif pour des contrôleurs aux capacités limitées.\\
 %				\item exemples (Linky, domotique, industrie)
 		La spécification de 6LoWPAN et ses RFC (4919 et 4944) définissent donc des solutions à ces problèmes, et on peut aujourd'hui utiliser plusieurs implémentations de 6LoWPAN, tel que ZigBee. Linky, le nouveau compteur communicant d'ERDF utilise cette technologie. Bien sûr, on peut trouver pléthore de projets et d'objets de domotique se servant de la spécification et de ses implémentations pour communiquer.
 		
@@ -102,10 +103,10 @@
 	Pour développer notre sonde renifleuse, nous avons utilisé plusieurs outils que nous allons présenter ici :
 	
 	\subsection{Contiki}
-	Contiki est un système d'exploitation léger et flexible avec pour cible les capteurs miniatures en réseau. Ses atouts sont sa flexibilité, sa portabilité, sa faible consommation énergétique, et surtout dans notre cas, son support des protocoles IPv6 et 6LoWPAN. Il répond à une attention importante de la communauté scientifique portée aux réseaux de capteurs sans fil. Il a été créé par une équipe du centre suédois de recherche scientifique SICS.
+	Contiki est un système d'exploitation léger et flexible ayant pour cible les capteurs miniatures en réseau. Ses atouts sont sa flexibilité, sa portabilité, sa faible consommation énergétique, et surtout dans notre cas, son support des protocoles IPv6 et 6LoWPAN. Il répond à une demande importante de la communauté scientifique portée aux réseaux de capteurs sans fil. Il a été créé par une équipe du centre suédois de recherche scientifique SICS.
 	
 	\subsection{Outils de simulations}
-	Notre sonde a été créée dans un environnement de développement fourni par le site officiel de Contiki, la machine virtuelle InstantContiki3.0, en utilisant principalement pour les tests l'outil de simulation Cooja.\\
+	Notre sonde a été créée dans un environnement de développement fourni par le site officiel de Contiki, la machine virtuelle InstantContiki3.0, en utilisant principalement pour les tests, l'outil de simulation Cooja.\\
 	Cooja est un simulateur de matériel pour Contiki permettant de créer virtuellement un réseau de capteurs, de les positionner à notre envie et de charger les différents programmes pour les noeuds (ou motes dans le jargon Contiki) à la volée.
 	Nous avons donc passé beaucoup de temps à l'utiliser pour tester notre programme dans des situations réalistes.
 	\clearpage
@@ -117,7 +118,7 @@
 	\end{figure}
 
 	\subsection{Langage C embarqué et sa chaîne de compilation}
-	La création de la sonde s'est fait sur Contiki et le programme a dû être adapté aux contraintes du matériel pour lequel il est créé. Pour cela, nous devions rendre le code le plus léger et proche du matériel, ceci s'illustre par l'absence des librairies standard du langage C, par exemple stdlib ou unistd.\\
+	La création de la sonde s'est fait sur Contiki et le programme a dû être adapté aux contraintes du matériel pour lequel il est créé. Pour cela, nous devions rendre le code plus léger et proche du matériel, ceci s'illustre par l'absence des librairies standard du langage C, par exemple stdlib ou unistd.\\
 	La compilation des programmes se fait avec des versions de GCC spécifiques aux architectures matérielles que nous utilisons.
 	
 	\subsection{Git}
